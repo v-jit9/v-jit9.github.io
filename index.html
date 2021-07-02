@@ -16,15 +16,17 @@ liffId: "1654040741-0Wrbl8Lb"
 
 }).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
 
-	if (liff.isApiAvailable('shareTargetPicker')) {
-  liff.shareTargetPicker([
-    {
-      type: "text",
-      text: "Hello, World!"
-    }
-  ])
-}
-})
+liff.shareTargetPicker([
+  {
+    type: "text",
+    text: "this is a test"
+  }
+])
+  .then(
+    alert("ShareTargetPicker was launched")
+  ).catch(function(res) {
+    alert("Failed to launch ShareTargetPicker")
+  })})
 </script>
         <div class="note">
             <p glot-model="note1"></p>
