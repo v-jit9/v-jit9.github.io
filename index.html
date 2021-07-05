@@ -30,14 +30,14 @@
 //	document.querySelector("#name").innerText = name
 
 
-	if (liff.isApiAvailable('shareTargetPicker')) {
+		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
     			{
 			      'type': 'text',
 			      'text': '一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
-		    .then(function (res) {
+		    .then(function (res: any) {
 			      if (res) {
 			        // succeeded in sending a message through TargetPicker
 			        console.log(`[${res.status}] Message sent!`)
@@ -46,18 +46,27 @@
 				        if (parseInt(majorVer) == 10 && parseInt(minorVer) < 11) {
 				          // LINE 10.3.0 - 10.10.0
 				          // Old LINE will access here regardless of user's action
+
+				          //シェアできたので、クーポン発行の動作を入れる
+
 				          console.log('TargetPicker was opened at least. Whether succeeded to send message is unclear')
 				        } else {
-				          // LINE 10.11.0 -
-				          // sending message canceled
-				          console.log('TargetPicker was closed!')
+				          
+				                            const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
+				                            if (parseInt(majorVer) === 10 && parseInt(minorVer) < 11) {
+				                                setMsg(t('メッセージ送信失敗'));
+				                            } else {
+				                                setMsg(t('友だち未選択'));
+				                            }
 				        }
 				      }
-				    }).catch(function (error) {
+				    }).catch(function (error: any) {
 				      // something went wrong before sending a message
 				      console.log('something wrong happen')
 				    })
-				}
+				}else {
+            setMsg(t('バージョン未対応'));            
+        }
 			})
 			})
 	
