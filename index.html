@@ -37,7 +37,7 @@
 			      'text': '一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
-		    .then(function (res: any) {
+		    .then(function (res) {
 			      if (res) {
 			        // succeeded in sending a message through TargetPicker
 			        console.log(`[${res.status}] Message sent!`)
@@ -60,7 +60,7 @@
 				                            }
 				        }
 				      }
-				    }).catch(function (error: any) {
+				    }).catch(function (error) {
 				      // something went wrong before sending a message
 				      console.log('something wrong happen')
 				    })
