@@ -29,12 +29,8 @@
 	// HTMLに挿入
 //	document.querySelector("#name").innerText = name
 
-	var idmess ;
-	liff.init(() => {
-  		const idToken = liff.getIDToken();
-  		console.log(idToken) // print raw idToken object
-		idmess = idToken ;
-	});
+	const idToken = liff.getIDToken();
+	console.log(idToken) // print raw idToken object
 
 
 		if (liff.isApiAvailable('shareTargetPicker')) {
