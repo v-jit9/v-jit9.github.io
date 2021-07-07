@@ -37,7 +37,7 @@
  		 liff.shareTargetPicker([
     			{
 			      'type': 'text',
-			      'text': idmess + 'さんと一緒に高知ユナイテッドを応援しよう！'
+			      'text': idToken + 'さんと一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
 		    .then(function (res) {
@@ -57,9 +57,9 @@
 				          
 				                            const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
 				                            if (parseInt(majorVer) === 10 && parseInt(minorVer) < 11) {
-				                                setMsg(t('メッセージ送信失敗'));
+				                                //setMsg(t('メッセージ送信失敗'));
 				                            } else {
-				                                setMsg(t('友だち未選択'));
+				                                //setMsg(t('友だち未選択'));
 				                            }
 				        }
 				      }
@@ -68,7 +68,7 @@
 				      console.log('something wrong happen')
 				    })
 				}else {
-            setMsg(t('バージョン未対応'));            
+            //setMsg(t('バージョン未対応'));            
         }
 			})
 			})
