@@ -29,12 +29,17 @@
 	// HTMLに挿入
 //	document.querySelector("#name").innerText = name
 
+liff.init(() => {
+  const idToken = liff.getIDToken();
+  console.log(idToken) // print raw idToken object
+});
+
 
 		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
     			{
 			      'type': 'text',
-			      'text': '一緒に高知ユナイテッドを応援しよう！'
+			      'text': idToken + 'さんと一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
 		    .then(function (res) {
