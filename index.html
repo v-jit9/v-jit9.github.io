@@ -25,19 +25,23 @@
 
 	// プロフィール名
 	const name = profile.displayName
-
+	var userid;
 	// HTMLに挿入
-//	document.querySelector("#name").innerText = name
-
-	const idToken = liff.getIDToken();
-	console.log(idToken) // print raw idToken object
+//	document.querySelector("#name").innerText = nauserme
+//	getIDToken() chenge getprofile.  
+	liff.getProfile().then(profile => {
+		userid = profile.userId;
+		})
+		.catch((err) => {
+		console.log('error', err);
+	});
 
 
 		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
     			{
 			      'type': 'text',
-			      'text': idToken + 'さんと一緒に高知ユナイテッドを応援しよう！'
+			      'text': userid + 'さんと一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
 		    .then(function (res) {
