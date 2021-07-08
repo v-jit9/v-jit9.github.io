@@ -25,7 +25,7 @@
 
 	// プロフィール名
 	const name = profile.displayName
-	var userid = profile.userId;;
+	const userid = profile.userId;;
 	// HTMLに挿入
 //	document.querySelector("#name").innerText = nauserme
 //	getIDToken() chenge getprofile.  
@@ -35,7 +35,7 @@
  		 liff.shareTargetPicker([
     			{
 			      'type': 'text',
-			      'text': userid + 'さんと一緒に高知ユナイテッドを応援しよう！'
+			      'text': name + userid + 'さんと一緒に高知ユナイテッドを応援しよう！'
     			}
 		  ])
 		    .then(function (res) {
