@@ -25,17 +25,11 @@
 
 	// プロフィール名
 	const name = profile.displayName
-	var userid;
+	var userid = profile.userId;;
 	// HTMLに挿入
 //	document.querySelector("#name").innerText = nauserme
 //	getIDToken() chenge getprofile.  
-	liff.getProfile().then(profile => {
-		userid = profile.userId;
-		})
-		.catch((err) => {
-		console.log('error', err);
-	});
-
+	
 
 		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
