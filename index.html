@@ -34,34 +34,39 @@
 		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
     			{
-			      "type": "bubble",
-  			      "header": {
-  			        "type": "box",
-			          "layout": "baseline",
-  			        "contents": [
-  			          {
-  			            "type": "icon",
-  			            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-  			            "position": "relative",
-  			            "size": "40px"
- 			           },
- 			           {
- 			             "type": "text",
- 			             "text": "高知ユナイテッドSC",
-  			            "color": "#FFFFFF",
-  			            "margin": "none",
-  			            "size": "xl",
-   			           "action": {
-    			            "type": "uri",
-    			            "label": "action",
-   			             "uri": "https://line.me/R/ti/p/@363jiqwl"
-   			           },
-   			           "offsetTop": "none"
-   			         }
-  			        ],
-  			        "backgroundColor": "#B90000"
-			        }
-    			}
+			          "type": "flex",
+				    "altText": "クーポン",
+				    "contents":
+				{
+				  "type": "bubble",
+				  "header": {
+				    "type": "box",
+				    "layout": "baseline",
+				    "contents": [
+				      {
+					"type": "icon",
+					"url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+					"position": "relative",
+					"size": "40px"
+				      },
+				      {
+					"type": "text",
+					"text": "高知ユナイテッドSC",
+					"color": "#FFFFFF",
+					"margin": "none",
+					"size": "xl",
+					"action": {
+					  "type": "uri",
+					  "label": "action",
+					  "uri": "https://line.me/R/ti/p/@363jiqwl"
+					},
+					"offsetTop": "none"
+				      }
+				    ],
+				    "backgroundColor": "#B90000"
+				  }
+				}
+			}
 		  ])
 		    .then(function (res) {
 			      if (res) {
