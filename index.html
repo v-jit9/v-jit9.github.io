@@ -1,36 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-  
-    <meta charset="UTF-8">
-    <title>sample</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  </head>
-  <body>
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js">
-  liff
-  .init({
-    liffId: "1656164357-kmGXRm1X" // liffIdを指定。line://app/XXXXXの部分
-  })
-  .then(() => {
-    // 処理はここから
-  })
-  .catch((err) => {
-    // エラー処理
-    console.log(err.code, err.message);
-  });
-  $.ajax({
-                // リクエスト送信先URLの設定
-                url: 'https://script.google.com/macros/s/AKfycbzqZw2D65iI_Le0SKPWLsu-DkQix7rnrX25S254xfUiObYSnWk/exec',
-		type: "GET", // GET,POSTなどを指定
-		
-                // 非同期通信フラグ
-		async: true,
-                // Ajax通信成功時にレスポンスデータ受け取り&処理実行
-//                  success: function(data) {
-//                     document.write(data);
-//                  }
-            });
-    </script>
-  </body>
+<html lang="jp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To do Login</title>
+        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    </head>
+    <body>
+    </body>
+	<script>
+	// LIFFの初期化を行う
+	liff.init({
+	// 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
+	liffId: "1656164357-kmGXRm1X"
+
+	}).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
+
+	if (!liff.isLoggedIn()) {
+		liff.login();
+	}
+
+	// 利用者のLINEアカウントのプロフィール名を取得
+	liff.getProfile().then(profile => {
+
+	// プロフィール名
+	const name = profile.displayName
+	const userid = profile.userId;;
+	// HTMLに挿入
+//	document.querySelector("#name").innerText = nauserme
+//	getIDToken() chenge getprofile.  
+	
+
+		if (liff.isApiAvailable('shareTargetPicker')) {
+ 		 liff.shareTargetPicker([
+    			{
+			      'type': 'text',
+			      'text': name + userid + 'さんと一緒に高知ユナイテッドを応援しよう！'
+    			}
+		  ])
+		    .then(function (res) {
+			      if (res) {
+			        // succeeded in sending a message through TargetPicker
+			        console.log(`[${res.status}] Message sent!`)
+			      } else {
+				        const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
+				        if (parseInt(majorVer) == 10 && parseInt(minorVer) < 11) {
+				          // LINE 10.3.0 - 10.10.0
+				          // Old LINE will access here regardless of user's action
+
+				          //シェアできたので、クーポン発行の動作を入れる
+
+				          console.log('TargetPicker was opened at least. Whether succeeded to send message is unclear')
+				        } else {
+				          
+				                            const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
+				                            if (parseInt(majorVer) === 10 && parseInt(minorVer) < 11) {
+				                                //setMsg(t('メッセージ送信失敗'));
+				                            } else {
+				                                //setMsg(t('友だち未選択'));
+				                            }
+				        }
+				      }
+				    }).catch(function (error) {
+				      // something went wrong before sending a message
+				      console.log('something wrong happen')
+				    })
+				}else {
+            //setMsg(t('バージョン未対応'));            
+        }
+			})
+			})
+	
+	</script>
 </html>
