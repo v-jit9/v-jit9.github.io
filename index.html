@@ -3,16 +3,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To do Login</title>
+        <title>shareFriend</title>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     </head>
     <body>
     </body>
 	<script>
+	const imgurl = "https://develop.lineappkochi.com/LINEApp/Developer/LIFF/temprate/img/2.png";
+	const LIFFid = "1656164357-kmGXRm1X";
+	const officialurl = "https://line.me/R/ti/p/@363jiqwl";
+
 	// LIFFの初期化を行う
 	liff.init({
 	// 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
-	liffId: "1656164357-kmGXRm1X"
+	liffId: LIFFid
 
 	}).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
 
@@ -35,7 +39,7 @@
  		 liff.shareTargetPicker([
 				{
 					"type":"text",
-					"text":"一緒に応援しよう！\n今ならお得なキャンペーンもやってるよ",
+					"text":name+"さんと一緒に応援しよう！\n今ならお得なキャンペーンもやってるよ",
 					"align": "start",
                 			"wrap": true,
                 			"contents": []			
@@ -52,7 +56,7 @@
 				    "contents": [
 				      {
 					"type": "icon",
-					"url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+					"url": imgurl,
 					"position": "relative",
 					"size": "40px"
 				      },
@@ -65,7 +69,7 @@
 					"action": {
 					  "type": "uri",
 					  "label": "action",
-					  "uri": "https://line.me/R/ti/p/@710tppqp"
+					  "uri": officialurl
 					},
 					"offsetTop": "none"
 				      }
@@ -105,6 +109,7 @@
 				}else {
             //setMsg(t('バージョン未対応'));            
         }
+        //結果に問わず動作してしまう。
 			})
 			})
 	
