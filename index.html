@@ -37,47 +37,122 @@
 
 		if (liff.isApiAvailable('shareTargetPicker')) {
  		 liff.shareTargetPicker([
-				{
-					"type":"text",
-					"text":name+"さんと一緒に応援しよう！\n今ならお得なキャンペーンもやってるよ",
-					"align": "start",
-                			"wrap": true,
-                			"contents": []			
-				},
-				{
-			          "type": "flex",
-				    "altText": "連絡先",
-				    "contents":
-				{
-				  "type": "bubble",
-				  "header": {
-				    "type": "box",
-				    "layout": "baseline",
-				    "contents": [
-				      {
-					"type": "icon",
-					"url": imgurl,
-					"position": "relative",
-					"size": "40px"
-				      },
-				      {
-					"type": "text",
-					"text": "高知ユナイテッドSC",
-					"color": "#FFFFFF",
-					"margin": "none",
-					"size": "xl",
-					"action": {
-					  "type": "uri",
-					  "label": "action",
-					  "uri": officialurl
-					},
-					"offsetTop": "none"
-				      }
-				    ],
-				    "backgroundColor": "#B90000"
-				  }
-				}
-			}
+				          {
+            "type": "flex",
+            "altText": "連絡先",
+            "contents":
+            {
+              "type": "bubble",
+              "direction": "ltr",
+              "header": {
+                "type": "box",
+                "layout": "vertical",
+                "position": "relative",
+                "backgroundColor": "#FF3B3BFF",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "高知から",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#000000FF",
+                        "align": "start",
+                        "margin": "none",
+                        "wrap": false,
+                        "style": "normal",
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "本気でＪリーグ！",
+                        "weight": "bold",
+                        "size": "xxl",
+                        "color": "#FFFFFFFF",
+                        "align": "end",
+                        "margin": "none",
+                        "decoration": "underline",
+                        "contents": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "hero": {
+                "type": "image",
+                "url": imgurl,
+                "size": "full",
+                "aspectRatio": "1.51:1",
+                "aspectMode": "fit",
+                "backgroundColor": "#FFFFFFFF"
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#FF3B3BFF",
+                "borderColor": "#FF3B3BFF",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "友達になって一緒に応援しよう！",
+                        "weight": "regular",
+                        "size": "md",
+                        "color": "#EFDBDBFF",
+                        "align": "center",
+                        "gravity": "top",
+                        "margin": "sm",
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "高知ユナイテッドSC",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#000000FF",
+                        "align": "center",
+                        "contents": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "お得なクーポン配信中！",
+                        "color": "#FFDDDDFF",
+                        "align": "center",
+                        "gravity": "bottom",
+                        "margin": "none",
+                        "contents": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "backgroundColor": "#8A0000FF",
+                "contents": [
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "uri",
+                      "label": "友達になって応援する！",
+                      "uri": officialurl
+                    },
+                    "color": "#FFFFFFFF",
+                    "margin": "none",
+                    "height": "sm"
+                  }
+                ]
+              }
+            }
+          }
+
 		  ])
 		    .then(function (res) {
 			      if (res) {
