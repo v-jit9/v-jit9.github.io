@@ -157,7 +157,8 @@
 		    .then(function (res) {
 			      if (res) {
 			        // succeeded in sending a message through TargetPicker
-			        console.log(`[${res.status}] Message sent!`)
+			        console.log(`[${res.status}] Message sent!`);
+			        liff.closeWindow();
 			      } else {
 				        const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
 				        if (parseInt(majorVer) == 10 && parseInt(minorVer) < 11) {
@@ -165,13 +166,13 @@
 				          // Old LINE will access here regardless of user's action
 
 				          //シェアできたので、クーポン発行の動作を入れる
-// 					  liff.closeWindow();
+ 					  liff.closeWindow();
 				          console.log('TargetPicker was opened at least. Whether succeeded to send message is unclear')
 				        } else {
-// 				          	liff.closeWindow();
+ 				          	liff.closeWindow();
 				                            const [majorVer, minorVer] = (liff.getLineVersion() || "").split('.');
 				                            if (parseInt(majorVer) === 10 && parseInt(minorVer) < 11) {
-				                                //setMsg(t('メッセージ送信失敗'));
+				                                //setMsg(t('メッセージ送信失敗'));				                                
 				                            } else {
 				                                //setMsg(t('友だち未選択'));
 				                            }
@@ -179,12 +180,14 @@
 				      }
 				    }).catch(function (error) {
 				      // something went wrong before sending a message
-				      console.log('something wrong happen')
+				      console.log('something wrong happen');
+				      liff.closeWindow();
 				    })
 				}else {
-            //setMsg(t('バージョン未対応'));            
+            //setMsg(t('バージョン未対応'));
+            liff.closeWindow();            
         }
-        //結果に問わず動作してしまう。
+        
 			})
 			})
 	
